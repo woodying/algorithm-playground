@@ -1,17 +1,24 @@
 package boj
 
-// https://www.acmicpc.net/problem/10989
+import java.io.BufferedReader
+import java.io.BufferedWriter
+import java.io.InputStreamReader
+import java.io.OutputStreamWriter
+
 fun main() {
-    val n = readLine()!!.toInt()
+    val n = readln().toInt()
 
     val count = IntArray(10001)
-    repeat(n) {
-        count[readLine()!!.toInt()]++
+
+    BufferedReader(InputStreamReader(System.`in`)).use { br ->
+        repeat(n) { count[br.readLine().toInt()]++ }
     }
 
-    count.forEachIndexed { number, frequency ->
-        repeat(frequency) {
-            println(number)
+    BufferedWriter(OutputStreamWriter(System.out)).use { bw ->
+        repeat(10001) { i ->
+            repeat(count[i]) {
+                bw.write("$i\n")
+            }
         }
     }
 }
