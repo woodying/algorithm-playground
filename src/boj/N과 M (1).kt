@@ -3,7 +3,6 @@ package boj
 // https://www.acmicpc.net/problem/15649
 fun main() {
     val (n, m) = readln().split(" ").map { it.toInt() }
-
     val visited = BooleanArray(n + 1)
     val result = IntArray(m)
 
